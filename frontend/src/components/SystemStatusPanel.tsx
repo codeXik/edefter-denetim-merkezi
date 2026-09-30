@@ -48,35 +48,16 @@ export function SystemStatusPanel({ systemStatus, onOpenPath, onLoadLicense }: S
           <strong>Cihaz Kodu</strong>
           <span>{lisans.device_code || "-"}</span>
         </div>
-        <div className="detail-meta-item">
-          <strong>Lisans Sahibi</strong>
-          <span>{lisans.licensee || "-"}</span>
-        </div>
-        <div className="detail-meta-item">
-          <strong>Demo Hak</strong>
-          <span>{lisans.demo.used_count}/{lisans.demo.limit}</span>
-        </div>
-        <div className="detail-meta-item">
-          <strong>Kalan Hak</strong>
-          <span>{lisans.demo.remaining}</span>
-        </div>
       </div>
 
       <div className="system-actions">
-        <button className="button button-secondary" onClick={onLoadLicense}>Lisans Yükle</button>
-        <button className="button button-secondary" onClick={() => void copyDeviceCode()}>Cihaz Kodunu Kopyala</button>
         <button className="button button-secondary" onClick={() => onOpenPath(systemStatus.yollar.log)}>Log Klasörü</button>
         <button className="button button-secondary" onClick={() => onOpenPath(systemStatus.yollar.appLog)}>App Log</button>
         <button className="button button-secondary" onClick={() => onOpenPath(systemStatus.yollar.debugLog)}>Debug Log</button>
         <button className="button button-secondary" onClick={() => onOpenPath(systemStatus.yollar.errorLog)}>Error Log</button>
-        <button className="button button-secondary" onClick={() => onOpenPath(lisans.license_path)}>Lisans Dosyası</button>
       </div>
 
       <div className="system-diagnostics">
-        <div className="system-diagnostic-row">
-          <strong>Demo Kullanımı</strong>
-          <span>{lisans.demo.used_count} / {lisans.demo.limit} arşiv kullanıldı</span>
-        </div>
         <div className="system-diagnostic-row">
           <strong>Son Hata</strong>
           <span>{systemStatus.gunluk.sonHataSatiri || "Hata kaydı görünmüyor."}</span>

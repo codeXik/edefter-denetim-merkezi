@@ -27,7 +27,7 @@ export function TaxpayerProfileView({
   onBack,
 }: TaxpayerProfileViewProps) {
   if (!card) {
-    return <div className="card compact-empty-state">Profil g\u00f6r\u00fcnt\u00fclenecek m\u00fckellef bulunamad\u0131.</div>;
+    return <div className="card compact-empty-state">Profil görüntülenecek mükellef bulunamadı.</div>;
   }
 
   const warnings = card.demoLocked
@@ -45,7 +45,7 @@ export function TaxpayerProfileView({
                 className="icon-only-action"
                 onClick={() => card.klasorYolu && void openPath(card.klasorYolu)}
                 disabled={!card.klasorYolu || card.demoLocked}
-                title="Klas\u00f6r\u00fc a\u00e7"
+                title="Klasörü aç"
                 type="button"
               >
                 <FolderIcon />
@@ -70,11 +70,11 @@ export function TaxpayerProfileView({
 
         <div className="taxpayer-profile-summary-grid">
           <div className="taxpayer-profile-chip">
-            <strong>Y\u0131l</strong>
+            <strong>Yıl</strong>
             <span>{card.yil}</span>
           </div>
           <div className="taxpayer-profile-chip">
-            <strong>Mali M\u00fc\u015favir</strong>
+            <strong>Mali Müşavir</strong>
             <span>{card.maliMusavir || "-"}</span>
           </div>
           <div className="taxpayer-profile-chip">
@@ -82,20 +82,20 @@ export function TaxpayerProfileView({
             <span>{card.demoLocked ? "Kilitli" : `${riskIcon(card.genelRisk)} ${riskLabel(card.genelRisk)}`}</span>
           </div>
           <div className="taxpayer-profile-chip">
-            <strong>Uyar\u0131</strong>
-            <span>{card.demoLocked ? "\u00d6nizleme" : `${warnings.length} kay\u0131t`}</span>
+            <strong>Uyarı</strong>
+            <span>{card.demoLocked ? "Önizleme" : `${warnings.length} kayıt`}</span>
           </div>
         </div>
 
         {card.envanterVar ? (
           <div className="taxpayer-profile-notice taxpayer-profile-notice-info">
             {card.gibEnvanterVar
-              ? `Bu y\u0131lda ${card.envanterDonemSayisi || 0} d\u00f6nemde envanter ve G\u0130B onayl\u0131 envanter berat\u0131 izleniyor.`
-              : `Bu y\u0131lda ${card.envanterDonemSayisi || 0} d\u00f6nemde envanter kayd\u0131 izleniyor.`}
+              ? `Bu yılda ${card.envanterDonemSayisi || 0} dönemde envanter ve GİB onaylı envanter beratı izleniyor.`
+              : `Bu yılda ${card.envanterDonemSayisi || 0} dönemde envanter kaydı izleniyor.`}
           </div>
         ) : null}
         {card.ozelDurum ? <div className="taxpayer-profile-notice">{card.ozelDurum}</div> : null}
-        {card.demoLocked ? <div className="taxpayer-profile-notice taxpayer-profile-lock-notice">{card.demoMessage || "Bu firma Demo Mod s\u0131n\u0131r\u0131 d\u0131\u015f\u0131nda."}</div> : null}
+        {card.demoLocked ? <div className="taxpayer-profile-notice taxpayer-profile-lock-notice">{card.demoMessage || "Bu firma Demo Mod sınırı dışında."}</div> : null}
 
         <div className={`months-grid months-grid-quarterly taxpayer-profile-months ${card.demoLocked ? "months-grid-locked" : ""}`}>
           {card.donemler.map((month) => (
@@ -121,12 +121,12 @@ export function TaxpayerProfileView({
       <section className="card">
         <div className="card-header-row">
           <div>
-            <h2 className="section-title">M\u00fckellef Uyar\u0131lar\u0131</h2>
-            <p className="section-subtitle">Se\u00e7ili y\u0131ldaki hareketler</p>
+            <h2 className="section-title">Mükellef Uyarıları</h2>
+            <p className="section-subtitle">Seçili yıldaki hareketler</p>
           </div>
         </div>
         {card.demoLocked ? (
-          <div className="compact-empty-state">Detay uyar\u0131lar Pro Mod ile a\u00e7\u0131l\u0131r.</div>
+          <div className="compact-empty-state">Detay uyarılar Pro Mod ile açılır.</div>
         ) : warnings.length > 0 ? (
           <div className="warning-list">
             {warnings.map((period) => (
@@ -138,7 +138,7 @@ export function TaxpayerProfileView({
             ))}
           </div>
         ) : (
-          <div className="compact-empty-state">Bu m\u00fckellef i\u00e7in se\u00e7ili y\u0131lda uyar\u0131 g\u00f6r\u00fcnm\u00fcyor.</div>
+          <div className="compact-empty-state">Bu mükellef için seçili yılda uyarı görünmüyor.</div>
         )}
       </section>
     </div>

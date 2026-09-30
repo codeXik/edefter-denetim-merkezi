@@ -27,7 +27,7 @@ export function SectionSummaryInline({
       </span>
       <span className="section-summary-chip">
         <strong>{gonderilmisFirma}</strong>
-        <small>firma g\u00f6nderilmi\u015f</small>
+        <small>firma gönderilmiş</small>
       </span>
       <button
         className={`section-summary-chip section-summary-chip-warning section-summary-chip-clickable ${uyariFirma > 0 ? "section-summary-chip-warning-active" : ""}`}
@@ -35,12 +35,12 @@ export function SectionSummaryInline({
         type="button"
       >
         <strong>{uyariFirma}</strong>
-        <small>firma i\u00e7in uyar\u0131 var</small>
+        <small>firma için uyarı var</small>
       </button>
       {donemKarsilastirmaEtiketi ? (
         <button className="section-summary-chip section-summary-chip-clickable" onClick={onOpenWarnings} type="button">
           <strong>{donemKarsilastirmaEtiketi}</strong>
-          <small>ge\u00e7mi\u015f d\u00f6nem kar\u015f\u0131la\u015ft\u0131rmas\u0131</small>
+          <small>geçmiş dönem karşılaştırması</small>
         </button>
       ) : null}
     </div>

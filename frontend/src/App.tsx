@@ -277,9 +277,7 @@ function App() {
       )
       .sort((a, b) => a.ay.localeCompare(b.ay, "tr"));
   }, [data, selectedTaxpayerCard]);
-  const demoHakMetni = !isProMode
-    ? `Demo ${sistemDurumu?.lisans?.demo?.used_count ?? 0}/${sistemDurumu?.lisans?.demo?.limit ?? 4}`
-    : "";
+  const demoHakMetni = "";
 
   useEffect(() => {
     setKartBaslangici(0);
@@ -1296,25 +1294,21 @@ function App() {
                 <p><strong>e-Defter Görüntüle</strong> ile istediğiniz XML dosyasını seçebilirsiniz. Dönem içindeki uygun alanlara bastığınızda XML programın içinde açılır. Windows üzerinden sağ tık ile <strong>e-Defter Denetim Merkezi ile Aç</strong> seçeneğini de kullanabilirsiniz.</p>
               </section>
               <section className="kilavuz-section">
-                <strong>8. Demo ve Pro Modu</strong>
-                <p>Demo Modunda sadece 4 firma tam açılır. Diğer firmalar kilitli önizleme olarak görünür. Pro Modu etkinleştirildiğinde tüm firma ve dönemler açılır.</p>
+                <strong>8. Ücretsiz Sürüm</strong>
+                <p>Program tamamen ücretsizdir; firma veya dönem sınırı yoktur. İşinize yaradıysa üstteki <strong>Destek Ol</strong> butonuyla bir kahve ısmarlayabilirsiniz.</p>
               </section>
               <section className="kilavuz-section">
-                <strong>9. Lisans</strong>
-                <p><strong>Lisans</strong> alanında cihaz kodunu görebilir, kopyalayabilir ve lisans dosyanızı ekleyebilirsiniz. Lisans doğruysa program Pro Modu olarak çalışır. Satın alım ve destek bağlantıları aynı alanda yer alır.</p>
-              </section>
-              <section className="kilavuz-section">
-                <strong>10. Loglar</strong>
+                <strong>9. Loglar</strong>
                 <p>Bir sorun yaşarsanız <strong>Loglar</strong> alanından uygulama logu, hata ayıklama logu ve hata logunu açabilirsiniz. Bu kayıtlar sorunu bulmayı kolaylaştırır.</p>
               </section>
               <section className="kilavuz-section">
-                <strong>11. S.S.S, destek ve satın alım</strong>
-                <p>Üst alandaki <strong>S.S.S</strong> bağlantısı sık sorulan sorulara gider. <strong>Destek</strong> bağlantısı teknik destek alanını açar. Lisans penceresindeki <strong>Satın Alım</strong> bağlantısı Pro Modu satın alma sayfasına yönlendirir.</p>
+                <strong>10. S.S.S ve destek</strong>
+                <p>Üst alandaki <strong>S.S.S</strong> bağlantısı sık sorulan sorulara gider. <strong>Destek</strong> bağlantısı teknik destek alanını açar. <strong>Destek Ol</strong> butonuyla projeye bir kahve ısmarlayarak katkıda bulunabilirsiniz.</p>
               </section>
               <div className="button-row">
                 <button className="button button-secondary" onClick={() => void openExternalUrl(SUPPORT_BASE_URL)} type="button">S.S.S</button>
                 <button className="button button-secondary" onClick={() => void openExternalUrl(SUPPORT_BASE_URL)} type="button">Teknik Destek</button>
-                <button className="button button-secondary" onClick={() => void openExternalUrl(SUPPORT_BASE_URL)} type="button">Satın Alım</button>
+                <button className="button button-secondary" onClick={() => void openExternalUrl("https://buymeacoffee.com/skynonlabs")} type="button">☕ Destek Ol</button>
               </div>
             </div>
           </div>
@@ -1431,11 +1425,11 @@ function buildXmlSources(period: DonemKaydi): XmlKaynak[] {
 }
 function normalizeModeLabel(value?: string) {
   if (!value) {
-    return "Demo Modu";
+    return "Ücretsiz Sürüm";
   }
   const normalized = value.toLocaleLowerCase("tr-TR");
-  if (normalized.includes("tam") || normalized.includes("pro") || normalized.includes("surum")) {
-    return "Pro Modu";
+  if (normalized.includes("tam") || normalized.includes("pro") || normalized.includes("surum") || normalized.includes("sürüm")) {
+    return "Ücretsiz Sürüm";
   }
   return value;
 }

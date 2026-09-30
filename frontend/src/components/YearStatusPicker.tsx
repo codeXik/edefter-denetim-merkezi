@@ -25,7 +25,7 @@ export function YearStatusPicker({
   onYearChange,
   scanning = false,
   includeAllOption = false,
-  allOptionLabel = "T\u00fcm Y\u0131llar",
+  allOptionLabel = "Tüm Yıllar",
   buttonClassName = "",
 }: YearStatusPickerProps) {
   const [open, setOpen] = useState(false);
@@ -45,12 +45,12 @@ export function YearStatusPicker({
 
   const currentStatus = statusMap.get(selectedYear);
   const currentLabel = selectedYear
-    ? selectedYear === "T\u00fcm Y\u0131llar"
+    ? selectedYear === "Tüm Yıllar"
       ? allOptionLabel
-      : `${selectedYear}${currentStatus === "ready" ? " \u2713" : currentStatus === "active" ? " \u2022" : ""}`
+      : `${selectedYear}${currentStatus === "ready" ? " ✓" : currentStatus === "active" ? " •" : ""}`
     : orderedYears[0]
       ? String(orderedYears[0])
-      : "Y\u0131l";
+      : "Yıl";
 
   return (
     <div className="dashboard-year-picker">
@@ -60,21 +60,21 @@ export function YearStatusPicker({
         type="button"
       >
         <span>{currentLabel}</span>
-        <span aria-hidden="true">\u25be</span>
+        <span aria-hidden="true">▾</span>
       </button>
       {open ? (
         <div className="dashboard-year-picker-menu">
           {includeAllOption ? (
             <button
-              className={`dashboard-year-picker-item ${selectedYear === "T\u00fcm Y\u0131llar" ? "dashboard-year-picker-item-selected" : ""}`}
+              className={`dashboard-year-picker-item ${selectedYear === "Tüm Yıllar" ? "dashboard-year-picker-item-selected" : ""}`}
               onClick={() => {
-                onYearChange("T\u00fcm Y\u0131llar");
+                onYearChange("Tüm Yıllar");
                 setOpen(false);
               }}
               type="button"
             >
               <span>{allOptionLabel}</span>
-              <small>Haz\u0131r</small>
+              <small>Hazır</small>
             </button>
           ) : null}
           {orderedYears.map((year) => {
@@ -96,12 +96,12 @@ export function YearStatusPicker({
                 <span>{year}</span>
                 <small>
                   {status === "ready"
-                    ? "Haz\u0131r \u2713"
+                    ? "Hazır ✓"
                     : status === "active"
-                      ? "Taran\u0131yor"
+                      ? "Taranıyor"
                       : scanning
                         ? "Bekliyor"
-                        : "Taranmad\u0131"}
+                        : "Taranmadı"}
                 </small>
               </button>
             );

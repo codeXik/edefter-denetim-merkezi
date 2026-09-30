@@ -65,10 +65,10 @@ export function DashboardView({
           <div className="startup-onboarding-icon" aria-hidden="true">
             <FolderIcon />
           </div>
-          <h2>e-Defter bulunan klas\u00f6r\u00fc se\u00e7in</h2>
-          <p>\u0130lk tarama i\u00e7in m\u00fc\u015fteri klas\u00f6r\u00fcn\u00fc se\u00e7in. Klas\u00f6r se\u00e7ildikten sonra tarama ba\u015flat\u0131l\u0131r.</p>
+          <h2>e-Defter bulunan klasörü seçin</h2>
+          <p>İlk tarama için müşteri klasörünü seçin. Klasör seçildikten sonra tarama başlatılır.</p>
           <button className="button button-primary" onClick={onChooseFolder} type="button">
-            Klas\u00f6r Se\u00e7
+            Klasör Seç
           </button>
         </section>
       </div>
@@ -80,7 +80,7 @@ export function DashboardView({
       <section className="card taxpayer-carousel-card taxpayer-carousel-card-compact">
         <div className="carousel-header">
           <div className="carousel-header-main">
-            <h2 className="section-title">M\u00fckellefler</h2>
+            <h2 className="section-title">Mükellefler</h2>
             <SectionSummaryInline
               toplamFirma={filteredCount}
               gonderilmisFirma={gonderilmisCount}
@@ -91,7 +91,7 @@ export function DashboardView({
             />
           </div>
           <div className="button-row">
-            <button className="button button-secondary square-button" onClick={onPreviousCards} type="button" aria-label="\u00d6nceki kartlar">
+            <button className="button button-secondary square-button" onClick={onPreviousCards} type="button" aria-label="Önceki kartlar">
               <ChevronLeftIcon />
             </button>
             <button className="button button-secondary square-button" onClick={onNextCards} type="button" aria-label="Sonraki kartlar">
@@ -105,7 +105,7 @@ export function DashboardView({
             className="compact-search-input"
             value={searchText}
             onChange={(event) => onSearchTextChange(event.target.value)}
-            placeholder="M\u00fckellef, \u00fcnvan, VKN veya mali m\u00fc\u015favir ara"
+            placeholder="Mükellef, ünvan, VKN veya mali müşavir ara"
           />
           <YearStatusPicker
             selectedYear={selectedYear}
@@ -153,7 +153,7 @@ export function DashboardView({
                           }
                         }}
                         disabled={!card.klasorYolu || card.demoLocked}
-                        title="Klas\u00f6r\u00fc a\u00e7"
+                        title="Klasörü aç"
                         type="button"
                       >
                         <FolderIcon />
@@ -164,8 +164,8 @@ export function DashboardView({
                           className={`taxpayer-inventory-badge ${card.gibEnvanterVar ? "taxpayer-inventory-badge-gib" : ""}`}
                           title={
                             card.gibEnvanterVar
-                              ? "Bu y\u0131lda envanter ve G\u0130B onayl\u0131 envanter berat\u0131 var"
-                              : "Bu y\u0131lda envanter kayd\u0131 var"
+                              ? "Bu yılda envanter ve GİB onaylı envanter beratı var"
+                              : "Bu yılda envanter kaydı var"
                           }
                         >
                           E
@@ -181,14 +181,14 @@ export function DashboardView({
                   </div>
 
                   <div className="taxpayer-card-meta">
-                    <span>{card.eksikDonemSayisi} sorunlu d\u00f6nem</span>
+                    <span>{card.eksikDonemSayisi} sorunlu dönem</span>
                     <span>{card.kritikSorunSayisi} kritik</span>
                   </div>
 
                   <div className="taxpayer-card-note-wrap">
-                    {card.maliMusavir ? <div className="taxpayer-card-note">Mali m\u00fc\u015favir: {card.maliMusavir}</div> : null}
+                    {card.maliMusavir ? <div className="taxpayer-card-note">Mali müşavir: {card.maliMusavir}</div> : null}
                     <div className={`taxpayer-card-note taxpayer-card-note-soft ${card.ozelDurum ? "taxpayer-card-note-special" : ""}`}>
-                      {card.demoLocked ? (card.demoMessage || "Demo s\u0131n\u0131r\u0131 d\u0131\u015f\u0131nda.") : buildCardShortSummary(card)}
+                      {card.demoLocked ? (card.demoMessage || "Demo sınırı dışında.") : buildCardShortSummary(card)}
                     </div>
                   </div>
 
@@ -224,8 +224,8 @@ export function DashboardView({
                       <LockIcon />
                     </span>
                     <div className="taxpayer-card-demo-lock-copy">
-                      <strong>Pro Mod ile a\u00e7\u0131l\u0131r</strong>
-                      <span>\u0130lk 4 firma d\u0131\u015f\u0131nda kalan veriler kilitlidir</span>
+                      <strong>Pro Mod ile açılır</strong>
+                      <span>İlk 4 firma dışında kalan veriler kilitlidir</span>
                     </div>
                   </div>
                 ) : null}
@@ -233,7 +233,7 @@ export function DashboardView({
             ))}
           </div>
         ) : (
-          <div className="compact-empty-state">Se\u00e7ili filtrede g\u00f6sterilecek m\u00fckellef bulunamad\u0131.</div>
+          <div className="compact-empty-state">Seçili filtrede gösterilecek mükellef bulunamadı.</div>
         )}
       </section>
     </div>
@@ -297,13 +297,13 @@ function TransitionIcon() {
 
 function buildCardShortSummary(card: MukellefKarti) {
   if (card.ozelDurumTipi === "tasfiye") {
-    return "Tasfiye klas\u00f6r\u00fc izleniyor";
+    return "Tasfiye klasörü izleniyor";
   }
   if (card.ozelDurumTipi === "kurulus") {
-    return "D\u00f6nem i\u00e7inde kurulu\u015f kayd\u0131 izleniyor";
+    return "Dönem içinde kuruluş kaydı izleniyor";
   }
   if ((card.onayliIstisnaSayisi ?? 0) > 0) {
-    return `${card.onayliIstisnaSayisi} kullan\u0131c\u0131 onayl\u0131 istisna var`;
+    return `${card.onayliIstisnaSayisi} kullanıcı onaylı istisna var`;
   }
   if (card.ozelDurum) {
     return card.ozelDurum;
@@ -312,9 +312,9 @@ function buildCardShortSummary(card: MukellefKarti) {
     return `${card.kritikSorunSayisi} kritik sorun var`;
   }
   if (card.eksikDonemSayisi > 0) {
-    return `${card.eksikDonemSayisi} d\u00f6nem kontrol bekliyor`;
+    return `${card.eksikDonemSayisi} dönem kontrol bekliyor`;
   }
-  return "T\u00fcm g\u00f6r\u00fcnen d\u00f6nemler temiz";
+  return "Tüm görünen dönemler temiz";
 }
 
 function cardSurfaceClass(card: MukellefKarti) {
