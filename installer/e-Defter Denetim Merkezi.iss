@@ -1,12 +1,12 @@
-#define MyAppName "e-Defter Denetim Merkezi"
-#define MyAppVersion "0.1.0"
+﻿#define MyAppName "e-Defter Denetim Merkezi"
+#define MyAppVersion "1.0.0"
 #define MyAppPublisher "SkynonLabs"
 #define MyAppExeName "e-Defter Denetim Merkezi.exe"
 #define MyAppFolder "e-Defter Denetim Merkezi"
-#define MySourceDir "C:\Users\Admin\Documents\Edefter Denetim Merkezi\dist\e-Defter Denetim Merkezi"
-#define MyIconFile "C:\Users\Admin\Documents\Edefter Denetim Merkezi\assets\branding\e_defter_denetim_merkezi_logo_set\edefter-denetim-merkezi.ico"
-#define MyWizardImageFile "C:\Users\Admin\Documents\Edefter Denetim Merkezi\assets\branding\e_defter_denetim_merkezi_logo_set\installer\wizard-image.bmp"
-#define MyWizardSmallImageFile "C:\Users\Admin\Documents\Edefter Denetim Merkezi\assets\branding\e_defter_denetim_merkezi_logo_set\installer\wizard-small.bmp"
+#define MySourceDir SourcePath + "..\dist\e-Defter Denetim Merkezi"
+#define MyIconFile SourcePath + "..\assets\branding\e_defter_denetim_merkezi_logo_set\edefter-denetim-merkezi.ico"
+#define MyWizardImageFile SourcePath + "..\assets\branding\e_defter_denetim_merkezi_logo_set\installer\wizard-image.bmp"
+#define MyWizardSmallImageFile SourcePath + "..\assets\branding\e_defter_denetim_merkezi_logo_set\installer\wizard-small.bmp"
 
 [Setup]
 AppId={{E4F6D1B8-4A91-4E9A-88B9-4A4B943A5C55}
@@ -23,7 +23,7 @@ WizardStyle=modern
 SetupIconFile={#MyIconFile}
 WizardImageFile={#MyWizardImageFile}
 WizardSmallImageFile={#MyWizardSmallImageFile}
-OutputDir=C:\Users\Admin\Documents\Edefter Denetim Merkezi\dist\installer
+OutputDir={#SourcePath}..\dist\installer
 OutputBaseFilename=e-Defter-Denetim-Merkezi-Setup
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
