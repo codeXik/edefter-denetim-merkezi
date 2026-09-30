@@ -1,0 +1,42 @@
+.venv/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+dist/
+build/
+reports/
+*.log
+.private/
+
+# Yayınlanmayacak dosyalar
+logs/
+tmp/
+tmp_*
+temp_*
+*.php
+edefter_demo_usage.json
+edefter_license.json
+edefter_license_generator_gui.*
+generate_edefter_license.*
+scripts/generate_edefter_license.py
+e-Defter Lisans Uretici.spec
+TASKS.md
+PRODUCT_NOTES_TASKS.md
+docs/
+scripts/demo_smoke_test.py
+scripts/perf_scan_benchmark.py
+
+# Yapay zekâ ajan dosyaları
+AGENTS.md
+CLAUDE.md
+.claude/
+.codex/
+.cursor/
+*.egg-info/
+*.tsbuildinfo
+CODEX_*

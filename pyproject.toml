@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edefter-denetim-merkezi"
+version = "0.1.0"
+description = "e-Defter arşiv denetim ve ön kontrol sistemi"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+  { name = "SkynonLabs" }
+]
+dependencies = [
+  "pywebview>=5.1,<6",
+]
+
+[project.scripts]
+edefter-denetim = "edefter_denetim.cli:main"
+edefter-denetim-ui = "edefter_denetim.desktop.app:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
